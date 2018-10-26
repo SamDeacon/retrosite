@@ -20,6 +20,9 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
+                    @can('isSuperAdmin')
+                    <a href="{{ url('/admin') }}">MANAGE</a> | 
+                    @endcan
                         <a href="{{ url('/profile') }}">authenticated profile</a> | 
                         <a href="{{ url('/logout') }}">logout</a>
                     @else
@@ -50,7 +53,9 @@
             </div> 
         </div>
         <footer>
+            @can('isSuperAdmin')
             PRIVATE: <a href="/admin">Manage</a>
+            @endcan
         </footer>
     </body>
 </html>

@@ -12,11 +12,11 @@ return [
     */
 
     // Project name. Shown in the breadcrumbs and a few other places.
-    'project_name' => 'Backpack',
+    'project_name' => 'Retroshrine',
 
     // Menu logos
-    'logo_lg'   => '<b>Back</b>pack',
-    'logo_mini' => '<b>B</b>p',
+    'logo_lg'   => '<p><b>Retro</b>shrine</p>',
+    'logo_mini' => '<b>R</b>s',
 
     // Developer or company name. Shown in footer.
     'developer_name' => 'Cristian Tabacitu',

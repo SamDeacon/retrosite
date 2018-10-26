@@ -22,9 +22,10 @@ class ManufacturersTableSeeder extends Seeder
           ];
           $faker = Faker::create();
           foreach ($items_array as $key => $item) {
-            $slug = Str::slug($item);
+            $title = $item;
+            $slug = Str::slug($title);
             DB::table('manufacturers')->insert([
-              'title' => $item,
+              'title' => $title,
               'slug' => $slug,
               'description' => $faker->text(100)
             ]);
