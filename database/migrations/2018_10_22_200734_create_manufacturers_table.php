@@ -18,6 +18,7 @@ class CreateManufacturersTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('description')->nullable();
+            $table->integer('order')->default(1);
             $table->string('tagline')->nullable();
             $table->string('logo')->default('no-logo.png')->nullable();
             $table->timestamps();

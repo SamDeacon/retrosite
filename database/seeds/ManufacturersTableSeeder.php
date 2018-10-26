@@ -14,20 +14,20 @@ class ManufacturersTableSeeder extends Seeder
     public function run()
     {
         $items_array = [
-            'SEGA',
-            'Sony',
-            'Nintendo',
-            'Microsoft',
-            'Atari.',
+            ['SEGA', 'sega', 'Do me a favour, plug me into a Sega', 'sega-logo.png'],
+            ['Sony', 'sony', 'Do Not Underestimate The Power Of PlayStation', 'sony-logo.png'],
+            ['Nintendo', 'nintendo', 'Now you\'re playing with power, SUPER POWER!', 'nintendo-logo.png'],
+            ['Microsoft', 'microsoft', 'Life is short. Play more.', 'xbox-logo.png'],
+            ['Atari', 'atari', 'Have you played Atari today?', 'atari-logo.png'],
           ];
           $faker = Faker::create();
           foreach ($items_array as $key => $item) {
-            $title = $item;
-            $slug = Str::slug($title);
             DB::table('manufacturers')->insert([
-              'title' => $title,
-              'slug' => $slug,
-              'description' => $faker->text(100)
+              'title' => $item[0],
+              'slug' => $item[1],
+              'description' => $item[2],
+              'tagline' => $item[2],
+              'logo' => $item[3],
             ]);
           }
     }
