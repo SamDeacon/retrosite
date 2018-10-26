@@ -27,7 +27,6 @@
                         <a href="{{ url('/logout') }}">logout</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
-
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
                         @endif
@@ -38,6 +37,30 @@
         <div class="content">
             <h1>Retroshrine</h1>
             <h3>AdminRetro</h3>
+            <hr>
+            <ul>
+                @foreach ($categories as $category)
+                    @if($category->parent_count == 0)
+                        <li>
+                            <h4>{{$category->title}}
+                            <small>[ID = {{$category->id}} || #children {{ $category->children_count}}]</small></h4> 
+                            @if($category->children_count > 0)
+                                <ul>
+                                    @foreach ($categories as $child_category)
+                                        @if($child_category->parent_id == $category->id)
+                                            <li>
+                                                <h4>{{$child_category->title}}
+                                                <small>ID = {{$child_category->id}} || Parent ID = {{$child_category->parent_id}}</small>
+                                                </h4>
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </li>
+                    @endif
+                @endforeach
+            </ul>
             <hr>
             <div class="card-body p-0">
                 <ul class="list-group bg-light-green">

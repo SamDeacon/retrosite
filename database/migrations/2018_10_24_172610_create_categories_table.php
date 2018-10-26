@@ -16,6 +16,7 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('description');
+            $table->integer('order')->default(1);
             $table->integer('parent_id')->unsigned()->nullable()->default(null);
             $table->foreign('parent_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('set null');
             $table->string('slug')->unique();

@@ -15,7 +15,7 @@ class CategoriesTableSeeder extends Seeder
     {
         $items_array = [
             ['Web Design', 'web-design', 'Web Design category description to be added here'],
-            ['Technology', 'Technology', 'Technology category description to be added here'],
+            ['Technology', 'technology', 'Technology category description to be added here'],
             ['Gaming News', 'gamin-news', 'Gaming News category description to be added here'],
             ['Sega', 'sega', 'Sega category description to be added here'],
             ['Nintendo', 'nintendo', 'Nintendo description to be added here'],
@@ -30,13 +30,16 @@ class CategoriesTableSeeder extends Seeder
             ['Videos', 'videos', 'Videos description to be added here'],
           ];
           $faker = Faker::create();
+          $i = 1;
           foreach ($items_array as $key => $item) {
             DB::table('categories')->insert([
               'title' => $item[0],
+              'order' => $i,
               'slug' => $item[1],
               'description' => $item[2],
-              'thumbnail' => 'thumbnail-placeholder.jpg',
+              'thumbnail' => $item[1].'.jpg',
             ]);
+            $i++;
           }
     }
 }
